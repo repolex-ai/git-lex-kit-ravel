@@ -1,0 +1,23 @@
+# git-lex kit configuration
+# Ravel kit — the transcript-graph engine's kit. Opt-in add-on (like pool and
+# copia): a soul installs it (`git lex kit-add repolex-ai/git-lex-kit-ravel`)
+# and gets (1) the ravel ontology installed to .lex/ontology/ravel/ and
+# (2) the SessionEnd transcript-backup hook: every real session end, the
+# session .jsonl is mirrored into .ravel/transcripts/<dialect>/ in the soul
+# repo (gitignored — transcripts are too big for GitHub; the mirror is the
+# local backup out of the harness's deletable folder) and ingested into the
+# .ravel/oxigraph transcript graph.
+#
+# Ontology source of truth is the RAVEL APP REPO (repolex-ai/ravel,
+# ontology/ravel/ravel.ttl) — published here via subtexture/tools/
+# ontology-publish. Do not edit ontology/ravel/ravel.ttl in this repo.
+scope: optional
+
+name: ravel
+
+# NO folder installation: every ravel class is graph-only (no git-lex:foldered
+# flag anywhere in ravel.ttl) — instances live in .ravel/oxigraph, never as
+# authored markdown. kit-add scaffolds ZERO folders in the soul corpus.
+install folders: false
+
+init_prompts: []
