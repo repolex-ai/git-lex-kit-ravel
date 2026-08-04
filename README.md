@@ -15,5 +15,12 @@ What a soul gets:
   binaries (`cargo install --path .` in the ravel repo). Without them the hook
   no-ops silently.
 
+> **⚠ Known gap (until git-lex's managed gitignore block adds `.ravel/`):**
+> after installing, add `.ravel/` to your repo's `.gitignore` yourself — the
+> engine-runtime managed block predates ravel (it covers `.pool/.copia/.weave/`)
+> and without the line your first `git lex save` after a sync will commit the
+> whole store + transcript mirror (th34's 82fe1d7, cleaned in f4660c2). Fix is
+> filed with w4r3z; when it lands, kit-update ensures the line automatically.
+
 Ontology source of truth: the ravel app repo (`ontology/ravel/ravel.ttl`),
 published here by `subtexture/tools/ontology-publish`. Edit there, never here.
