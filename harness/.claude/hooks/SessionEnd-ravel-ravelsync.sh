@@ -5,11 +5,12 @@
 # Thin shim per the hook-authoring guide: ALL logic lives in the ravel app
 # package (`ravel::sync`), called via the `ravel-sync` blessed entrypoint.
 # ravel-sync mirrors the harness's session `.jsonl` into
-# `.ravel/transcripts/claude-code/` — the LOCAL BACKUP of the conversations,
-# inside the soul repo dir (gitignored: transcripts are too big for GitHub)
-# and out of the harness folder where they can be arbitrarily deleted — then
-# ingests the mirror into `.ravel/oxigraph`. Both stages idempotent
-# (turn-keyed): an end-of-session run costs seconds.
+# `.ravel/_ignore/transcripts/claude-code/` — the LOCAL BACKUP of the
+# conversations, inside the soul repo dir (in the machine-local `_ignore/`
+# pocket, gitignored: transcripts are too big for GitHub) and out of the
+# harness folder where they can be arbitrarily deleted — then ingests the
+# mirror into `.ravel/_ignore/oxigraph`. Both stages idempotent (turn-keyed):
+# an end-of-session run costs seconds. Pre-pocket installs self-migrate.
 #
 # Requires the ravel binaries (`cargo install --path .` in repolex-ai/ravel).
 # Not installed → the hook no-ops silently (fail-soft; the next session with
