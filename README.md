@@ -8,17 +8,17 @@ What a soul gets:
 - **The ravel ontology** (`.lex/ontology/ravel/ravel.ttl`) — vocabulary for
   conversational turns + the reader-annotation layer. Graph-only: no folders
   are scaffolded in the soul corpus.
-- **`SessionEnd-ravel-ravelsync.sh`** — on every real session end, mirrors the
-  harness's session `.jsonl` into `.ravel/_ignore/transcripts/claude-code/`
-  (the local transcript backup, out of the harness's deletable folder) and
-  ingests the mirror into `.ravel/_ignore/oxigraph`. Both stages idempotent;
-  requires the `ravel` binaries (`cargo install --path .` in the ravel repo).
-  Without them the hook no-ops silently.
+- **A place in raveld's soul list.** Since 2026-09-22 (goodlux's ruling)
+  backups are made by `raveld`, one daemon per machine that syncs every
+  registered soul every 30 seconds; there are no hooks. After `kit-add`, add
+  the repo under `souls:` in `~/.config/ravel/config.yml` and run
+  `raveld restart` (or just `ravel`, which starts the daemon). Install the two
+  programs with `cargo install --path . --locked` in the ravel repo.
 
 Layout follows the stack-wide `_ignore/` pocket law (Rob, 2026-08-05):
 `.ravel/_ignore/` is machine-local and gitignored; everything else in
-`.ravel/` (e.g. future `config/`) is committable. `ravel-sync` self-migrates
-pre-pocket installs (loud log; refuses an ambiguous dual layout).
+`.ravel/` (e.g. future `config/`) is committable. raveld self-migrates
+pre-pocket installs on its first pass (loud log; refuses an ambiguous dual layout).
 
 > **Note:** git-lex's managed gitignore block covers `.ravel/` (whole-dir on
 > pre-pocket layouts, narrowing to `.ravel/_ignore/` once the legacy paths are

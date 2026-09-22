@@ -1,14 +1,14 @@
 # git-lex kit configuration
 # Ravel kit — the transcript-graph engine's kit. Opt-in add-on (like pool and
 # copia): a soul installs it (`git lex kit-add repolex-ai/git-lex-kit-ravel`)
-# and gets (1) the ravel ontology installed to .lex/ontology/ravel/ and
-# (2) the SessionEnd transcript-backup hook: every real session end, the
-# session .jsonl is mirrored into .ravel/_ignore/transcripts/<dialect>/ in the
-# soul repo (the machine-local _ignore/ pocket, gitignored — transcripts are
-# too big for GitHub; the mirror is the local backup out of the harness's
-# deletable folder) and ingested into the .ravel/_ignore/oxigraph transcript
-# graph. Everything in .ravel/ OUTSIDE _ignore/ is committable by the pocket
-# law (Rob, 2026-08-05).
+# and gets the ravel ontology installed to .lex/ontology/ravel/. Transcript
+# backup is raveld's job (2026-09-22): one daemon per machine mirrors every
+# registered soul's session .jsonl into .ravel/_ignore/transcripts/<dialect>/
+# (the machine-local _ignore/ pocket, gitignored — transcripts are too big for
+# GitHub; the mirror is the local backup out of the harness's deletable folder)
+# and ingests it into the .ravel/_ignore/oxigraph transcript graph, every 30
+# seconds. The kit ships NO hook. Everything in .ravel/ OUTSIDE _ignore/ is
+# committable by the pocket law (goodlux, 2026-08-05).
 #
 # Ontology source of truth is the RAVEL APP REPO (repolex-ai/ravel,
 # ontology/ravel/ravel.ttl) — published here via subtexture/tools/
